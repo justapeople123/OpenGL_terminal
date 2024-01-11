@@ -79,4 +79,49 @@
 
 # 圖學工具包(Graphics Toolkit)
 
-### A third-level heading
+* 圖學工具包(Graphics Toolkit)是為了渲染3D場景再螢幕上生成電腦圖形而設計出來的。    
+<br/>
+
+* 市面上有多種圖形工具包(Graphics Toolkit)，一般選用使用合者時，會有以下考量：
+
+    * 功能性(Functionality)  
+
+        * 完整(Throughout)  
+        * 小巧(Compact)  
+        * 正交(Orthogonal)  
+        * 速度(Speed)  
+
+    * 容易使用性(Ease-of-Use)與文件完整性(Documentation)  
+
+    * 可攜性(Portablity)  
+
+    * 可擴張性(Extensibility)  
+
+    * 標準化(Standards)  
+
+    * 擁有性(Ownership)
+
+    <div style="display: flex; justify-content: space-around;">
+       <img src="./img/table1.png" alt="table1" >
+    </div>
+    <br/>  
+    
+<br/>
+
+# OpenGL簡介與歷史
+
+* 開放圖形庫(Open Graphics Library, OPENGL)，是渲染2D與3D幾何物體的跨語言與跨平台的應用程式介面(Application Programming Interface, API)，一般是利用簡單的圖元(Primitive)來繪製複雜的三維場景。  
+<br/>
+
+* 歷史
+  * OpenGL標準化硬體支援存取方式，硬體製造商開發適當驅動程式，透過底層作頁系統所提供的接口功能，讓不同的圖形硬體可以使用同一種方式去溝通，為開發者提供更高層次的3D軟體開發平台。  
+<br/>
+
+* 版本  
+  * 2.0版本 : OpenGL 渲染程式語言 1.1 (OpenGL Shading Language, GLSL 1.1) 
+
+  * 主要從3.0版本後開始大量引入GLSL shader renderer.  
+
+  * 目前OpenGL : 4.x版本    
+
+
