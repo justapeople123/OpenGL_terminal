@@ -52,4 +52,179 @@
        <img src="./img/Coordinate System.png" alt="Coordinate System"  width = "150">
     </div>    
     <br/>
+
+---
     
+# 基本數學與空間運算
+
+* 數學記號與常用變數  
+    * 用來定義系統中的任一個位置，是構成座標空間的基本要素。  
+    <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Math.png" alt="Math" >
+    </div>    
+    <br/>
+
+    <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Name.png" alt="Name" >
+    </div>    
+    <br/>  
+
+* 向量相關數學運算  
+
+   向量在空間中可視為一個點，或是兩點之間的距離，這樣的特性使的向量能夠幫助計算空間中的問題。  
+   <br/>  
+
+   * 向量間的疊加(Addition)  
+     * 向量的疊加可視為移動量的疊加
+
+   * 向量與純量之間的乘除法(Multiplication)  
+     * 向量具有長度的性質，與純量做成除法的運算，可改變長度的大小並保留其方向的特性。  
+
+   * 向量間的內積(Dot product)
+     * 向量在空間中的內積具有許多特質可幫助求得向量間的角度關係與分量大小。  
+     * 其向量之間的內積定義是將兩邊向量的對應項次之乘積累加。  
+
+   * 向量間的叉積(Cross product)
+     * 叉積(Cross product)，或稱向量積(Cross product)，是用來求得與兩向量垂直的向量方向。
+
+* 矩陣相關數學運算  
+
+   矩陣是一個由二維數組組成的數學系統，其許多的數學特性使其用於解線性方程組或是計算線性變換上時常用到。  
+
+   * 基本性質與基本運算  
+     * 矩陣中的元素數量有 m X n 個，且每個元素能夠被標註其位置。  
+
+   * 矩陣加法運算(Addition)  
+     * 兩個**大小相同**的兩個矩陣之間可以相加。  
+
+   * 矩陣與純量乘法運算(Multiplication)  
+     * 矩陣可以與純量相乘。  
+
+   * 矩陣轉置運算(Matrix transpose)  
+     * 矩陣本身可以做轉置運算，其大小從 m X n -> n X m。  
+
+   * 矩陣運算性質  
+     * 矩陣的加法運算滿足交換率(Commutative property)   
+       * A + B = B + A  
+     * 矩陣的轉置和純量乘法運算對加法滿足分配律(Distributive property)  
+       * (A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup>  
+       * n(A + B) = nA + nB  
+     * 純量乘法與轉置的順具可以互換
+       * n(A<sup>T</sup>) = (nA)<sup>T</sup>  
+
+   * 矩陣間的乘法(Multiplication)  
+     * 兩個矩陣的乘法僅當地一個矩陣A的行數和另一個矩陣B的列數**相等**時，才能定義。  
+       * A<sub>mxn</sub> . B<sub>nxp</sub> = C<sub>mxp</sub>  
+     * 矩陣的乘法滿足結合律和對矩陣加法的分配律(Distributive property)  
+       * (AB)C = A(BC)  
+       * (A+B)C = AC + BC  
+       * C(A+B) = CA + CB  
+     * 矩陣的乘法與純量乘法運算和轉置也滿足以下轉換  
+       * c(AB) = (cA)B = A(cB)
+       * (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>  
+     * **矩陣乘法不滿足交換律**  
+       * **AB ≠ BA**  
+
+   * 方正矩陣與逆矩陣(Square matrix & Inverse matrix)  
+     * 當一個矩陣的行數與列數相等，可將該矩陣稱為方正矩陣(Square matrix)。  
+     * 一個 n X n 的方正矩陣A，若存在另一格方陣矩陣B使得 AB = l<sub>n</sub> = BA，則A為**可逆矩陣(Invertible matrix)**，而B為A的反矩陣(Inversion matrix)，且可將B記為A<sup>-1</sup>。  
+     * 逆矩陣(Inverse matrix)再用於解線性方程式或是用於反轉換運算等數學領域都有用途。  
+       * ex :   
+        Ax = b  
+        A<sup>-1</sup>Ax = A<sup>-1</sup>b  
+        l<sub>n</sub>x = A<sup>-1</sup>b  
+        x = A<sup>-1</sup>b  
+     * 當物體透過變化矩陣(Transformation matrix) **A** 從 P -> P<sup>'</sup>，該物體也可透過 **A** 的反矩陣(Inversion matrix) 從 P<sup>'</sup> -> P。  
+
+   <br/>  
+   <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Opengl matrix.png" alt="Opengl matrix" >
+   </div>    
+   <br/>  
+
+---
+    
+# 座標系統和轉換
+
+在鏡頭投影系統中，世界空間、相機和物體到螢幕都有屬於自己的座標空間，要正確地將物體投影回螢幕就必須經過座標系統的轉換，才能將物體渲染在螢幕上正確的位置。
+
+<div style="display: flex; justify-content: space-around;">
+       <img src="./img/Coordinate1.png" alt="Coordinate1" >
+</div>    
+在空間中，相同的位置在不同的座標系統下，標示的方式也不同。  
+  
+<br/>  
+
+<div style="display: flex; justify-content: ">
+       <img src="./img/Coordinate2.png" alt="Coordinate2" width = "400">
+</div> 
+在空間中相同的位置在不同的座標系統下標示的結果也不同。  
+  
+<br/> 
+
+在三維空間中，要將位置轉換至不同的座標空間內，需要進行座標轉換的運算，而在轉換前會將物體的座標轉變為三維齊次座標(3D homogeneous coordinate)表示。
+
+<div style="display: flex; justify-content: ">
+       <img src="./img/Coordinate3.png" alt="Coordinate3" width = "400">
+</div> 
+三維的齊次座標用(x, y, z, h)四元素向量表示在直角坐標空間中( x/h, y/h, z/h)的位置。  
+
+當h為零時，表示物體在(x, y, z)方向中無限遠的位置。
+
+  
+<br/> 
+
+<div style="display: flex; justify-content: space-around;">
+       <img src="./img/Opengl matrix.png" alt="Opengl matrix" >
+</div> 
+在齊次座標空間中，物體的座標轉換可透過變化矩陣(Transformation matrix)運算達成。
+
+<br/>  
+
+* 位移轉換(Translation Transformation)  
+
+  當需要把再三維空間中的物體，從現在的座標系統表示轉換到另一個相對空間位移的座標系表示，或是需要將物體在空間中移動時，需要進行位移轉換。
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Translation Transformation.png" alt="Translation Transformation" >
+  </div> 
+
+  <br/>  
+
+* 旋轉轉換(Rotation Transformation)  
+
+  當需要把再三維空間中的物體從現在的座標系統表是轉換到另一個相對旋轉的座標系表示，或是需要將物體在空間中繞著座標軸時，需要進行旋轉轉換。
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Rotation1.png" alt="Translation Rotation1" >
+  </div> 
+  沿著 x 軸旋轉θ<sup>。</sup>到新位置
+
+  <br/>  
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Rotation2.png" alt="Translation Rotation2" >
+  </div> 
+  沿著 y 軸旋轉θ<sup>。</sup>到新位置
+
+  <br/>  
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Rotation3.png" alt="Translation Rotation3" >
+  </div> 
+  沿著 z 軸旋轉θ<sup>。</sup>到新位置
+
+  <br/>  
+
+  **因其運算並不具有交換律的性質，所以三個軸向的旋轉順序不同會導致旋轉結果不同。**
+
+* 縮放轉換(Scaling Transformation) 
+
+
+
+
+
+
+
+
+
