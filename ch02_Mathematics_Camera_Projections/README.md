@@ -196,29 +196,90 @@
   當需要把再三維空間中的物體從現在的座標系統表是轉換到另一個相對旋轉的座標系表示，或是需要將物體在空間中繞著座標軸時，需要進行旋轉轉換。
 
   <div style="display: flex; justify-content: space-around;">
-       <img src="./img/Rotation1.png" alt="Translation Rotation1" >
+       <img src="./img/Rotation1.png" alt="Rotation1" >
   </div> 
   沿著 x 軸旋轉θ<sup>。</sup>到新位置
 
   <br/>  
 
   <div style="display: flex; justify-content: space-around;">
-       <img src="./img/Rotation2.png" alt="Translation Rotation2" >
+       <img src="./img/Rotation2.png" alt="Rotation2" >
   </div> 
   沿著 y 軸旋轉θ<sup>。</sup>到新位置
 
   <br/>  
 
   <div style="display: flex; justify-content: space-around;">
-       <img src="./img/Rotation3.png" alt="Translation Rotation3" >
+       <img src="./img/Rotation3.png" alt="Rotation3" >
   </div> 
   沿著 z 軸旋轉θ<sup>。</sup>到新位置
 
   <br/>  
 
-  **因其運算並不具有交換律的性質，所以三個軸向的旋轉順序不同會導致旋轉結果不同。**
+  **因其運算並不具有交換律的性質，所以三個軸向的旋轉順序不同會導致旋轉結果不同。**  
 
-* 縮放轉換(Scaling Transformation) 
+* 縮放轉換(Scaling Transformation)  
+
+  當需要把再三維空間中的物體從現在的座標系統表示轉換到另一個相對縮放的座標系表示，或是需要將物體在空間中沿著座標軸縮放與原典的距離時，就需要進行縮放轉換。
+
+   <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Scaling1.png" alt="Scaling1" >
+  </div>  
+  <br/>  
+
+  當縮放的參數為負值時，會產生翻轉的效果，稱為反射轉換(Reflection transform)、鏡射轉換(Mirror transform)和翻轉轉換(Flip transform)。  
+
+   <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Reflection.png" alt="Reflection" >
+  </div> 
+  <br/>  
+
+  
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Reflection_x.png" alt="Reflection_x" >
+  </div>  
+
+  點(x, y, z)對X座標軸反射到新位置  
+
+  <br/>   
+  
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Reflection_x_z.png" alt="Reflection_x_z" >
+  </div>  
+
+  點(x, y, z)對X與Z座標軸反射到新位置  
+
+  <br/>  
+
+* 切變轉換(Shearing Transformation)  
+
+  切變(Shearing)，是指將座標系統中座標軸之間的關係根據空間平面中指定的方向而改變，當在空間的點與指定方向(經原點)的距離越遠時，改變的程度就越大。  
+
+  當需要把在三維空間中的物體從現在的座標系統表示轉換到另一個相對切變(Shearing)的座標系表示，或是需要將物體在空間中隨著指定平面方向扭曲時就需要進行切變轉換。
+
+  在三維空間中，進行切變轉換(Shearing transformation)時需要的平面方向會從二維空間需要的一個增加為三個(x-y plane, x-z plane, y-z plane)。
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Shearing.png" alt="Shearing" width = "300">
+  </div>  
+  
+  <br/>  
+
+* 透視轉換(Perspective Transformation)
+
+  當鏡頭產生的視錐區域對應到二維平面時，較遠的物體被壓縮，透過透視轉換(Perspective Transformation)運算可以計算此笑我，將處在三維空間中離座標原點的越遠的位置縮放的越小。  
+
+  <div style="display: flex; justify-content: space-around;">
+       <img src="./img/Perspective.png" alt="Perspective" >
+  </div>  
+  當點(x, y, z)位置的物體對(X, Y, Z)進行透視轉換到新位置時。  
+
+  <br/>  
+
+* 綜合轉換(Combination Transformation)
+
+  
+
 
 
 
