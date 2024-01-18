@@ -278,6 +278,63 @@
 
 * 綜合轉換(Combination Transformation)
 
+  旋轉、縮放與位移，這三個運算會影響物體所處的座標軸，若是轉換順序不一樣，得到的結果也會不相同，建議先將物體轉回座標原點再進行旋轉與縮放的運算。
+
+---
+    
+# 座標系統和轉換
+
+在OpenGL中有透視投影(Perspective projection)與正交投影(Orthographic projection)兩種鏡頭設定。 
+
+<div style="display: flex; justify-content: space-around;">
+      <img src="./img/projection.png" alt="Perprojectionspective" >
+</div>  
+<br/>  
+
+透視投影(Perspective projection)透過設定鏡頭的廣角與投影面長寬比投影出類似於第一人稱視角的畫面。  
+正交投影(Orthographic projection)透過設定投影的方向與平面，投影出模擬從遠方觀察的畫面，
+
+* 透視投影(Perspective projection)  
+
+  透視投影(Perspective projection)的成像結果較接近用相機拍攝環境的效果，比較能察覺環境的深度。
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/Perspective_c1.png" alt="Perspective_c1" >
+  </div>  
+  <br/>  
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/Perspective_c2.png" alt="Perspective_c2" >
+  </div>  
+  <br/>  
+
+  經過轉換後，無論原位置的深度Z為何值，其運算的結果皆會使新位置的深度為d，使的空間中的物體都壓縮對應到 (z=d) 的二維平面上。  
+
+* 正交投影(Orthographic projection)
+
+  正交投影(Orthographic projection)的成像結果常用在鳥瞰視野或是截面圖上，對單一平面上的觀察較為精確。
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/Orthographic_c1.png" alt="Orthographic_c1" >
+  </div>  
+  <br/>  
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/Orthographic_c2.png" alt="Orthographic_c2" >
+  </div>  
+  <br/>  
+
+  經過轉換後，無論原位置的深度Z為何值，其運算的結果皆會使新位置的深度為0，使的空間中的物體都壓縮對應到 (z=0) 的二維平面上。  
+
+---
+    
+# 渲染相關座標系統
+
+
+
+
+
+
   
 
 
