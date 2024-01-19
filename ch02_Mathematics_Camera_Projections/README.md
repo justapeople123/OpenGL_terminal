@@ -330,6 +330,115 @@
     
 # 渲染相關座標系統
 
+在OpenGL中，將三維空間中的點投影到二維空間的螢幕上，需經過
+
+1. [模型座標空間(Object space)](#Object_space)
+2. [世界座標空間(World space)](#World_space)
+3. [鏡頭座標空間(Camera space)](#Camera_space)
+4. [正則座標空間(Canonical space)](#Canonical_space)
+5. [螢幕座標空間(Screen space)](#Screen_space)
+
+空間中的點每經過一層座標轉換，其在空間中的幾何意義也會跟著改變。
+
+* 模型座標空間(Object Space) <a name="Object_space"></a>  
+
+  在OpenGL架構中，物體擁有一個模型座標空間，以座標原點(物體中心)為基準，將三維模型(3D model)的點儲存在座標空間中，只要三維模型(3D model)不發生形變(Deformation)，OpenGL就不需要消耗運算資源去更新三維模型(3D model)的點資訊。 
+
+  透過用模型座標空間儲存點(Point)資訊，可以省去更新點(Point)資料的運算資源。   
+
+* 世界座標空間(World space) <a name="World_space"></a>  
+
+  建立世界的基準點，提供空間中的物體參照，當空間中有三維模型移動時，只需更新該三維模型在世界座標的資訊即可，省下記憶體用量。
+
+  在OpengGL架構中，每一個三維模型都有一個對應世界座標的塑模座標矩陣(Model matrix)，處在模型座標空間的資訊，可透過三維模型的塑模座標矩陣(Model matrix)相乘進行模型轉換(Modeling transformation)進入世界座標空間。
+
+* 鏡頭座標空間(Camera space) <a name="Camera_space"></a>  
+
+  鏡頭在世界座標空間中觀察空間中的物體，然而對鏡頭而言，一個物體是否被看到取決於該物體與鏡頭在空間中的相對關係。
+
+  在OpenGL架構中，有一個鏡頭位置與世界座標(World coordinate)對應的鏡頭矩陣，世界座標(World coordinate)中的物體可透過該矩陣進行鏡頭轉換到鏡頭座標(Camera coordinate)的空間中。
+
+  在OpenGL架構中，鏡頭透過位置(Position)、方向(Direction)與上方(Lookup)來設定鏡頭的參數。
+
+  假設世界座標空間中設置的鏡頭位置在**P**，對著**F**的方向並以**U**為上方，透過**U**與**F**的叉積(Corss product)**U X F**取得鏡頭的左方向**L**，即可得到鏡頭矩陣(View matrix)。
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/Model_view_matrix.png" alt="Model_view_matrix" >
+  </div>  
+  <br/>  
+
+* 正則座標空間(Canonical space) <a name="Canonical_space"></a>  
+
+  相機經過設定後會產生三維的成像視錐區域(Canonical view volume)，當物體經過投影轉換(Projection transformation)從鏡頭座標空間(Camera space)轉到正則座標空間(Canoical space)的過程中，成像視錐區域(Canonical view volume)會被壓縮在(-1, -1, -1)到(1, 1, 1)的區域內。
+
+  此時空間中的位置可透過簡單的邏輯計算(**|P|**>1)快速檢查該位置是否被鏡頭觀察到。
+
+  而後，被觀察到的點會投射到該區域的成像區域平面，轉到二維的空間維度。
+
+* 螢幕座標空間(Screen space) <a name="Screen_space"></a>  
+
+  當物體經過投影轉換(Projection transformation)到二維空間時，其平面大小為1到-1之間。
+
+  在OpenGL中鏡頭所看到的畫面不一定符合螢幕中可顯示的大小與比例，因此需要經過視角轉換(Viewport transformation)轉到合適的空間已符合螢幕。
+
+* 整體轉換及GL上的轉換狀態
+
+  一個三維模型物體的點資料，經過上述的轉換後到實際顯示的視窗畫面成像。
+
+  在OpenGL架構中，這五種類型的座標空間被分為：  
+
+  1. 視覽座標矩陣(Model-view matrix, GL_MODELVIEW)  
+     負責處理物體在三為空間中縮放(Scaling)和位移(Translation)等轉換的運算。  
+
+  2. 投影矩陣(Projection matrix, GL_PROJECTION)  
+     負責鏡頭投影(Projection)的轉換運算。
+
+  OpenGL架構中，物體可直接與上述兩類矩陣直接運算從三維空間投影到二維的畫面上。
+
+  <div style="display: flex; justify-content: space-around;">
+        <img src="./img/GL_trans.png" alt="GL_trans" >
+  </div>  
+  <br/>  
+
+
+  ```cpp
+  # GL_MODELVIEW Example
+
+  glMatrixMode(GL_MODELVIEW); 
+  // 將目前轉換模式改為視覽座標矩陣模式
+  glLoadIdentity();  
+  // 將目前的視覽座標矩陣重設為單位矩陣(Identity matrix)
+  glTranslatef(0.0, 0.0, -5.0);  
+  // 位移轉換(z軸方向移動-5單位)
+  glRotatef(-45.0, 0.0, 1.0, 0.0);  
+  // 旋轉轉換(y軸方向旋轉45度)
+  glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
+  // 將目前計算的視覽座標矩陣輸出給modelview變數
+
+  ```
+
+  ```cpp
+  # GL_PROJECTION Example
+
+  aspect = width * 1.0f / height;
+  // 設定畫面長寬比例變數 aspect
+  glMatrixMode(GL_PROJECTION); 
+  // 將目前轉換模式改為投影矩陣模式
+  glLoadIdentity();  
+  // 將目前的投影矩陣重設為單位矩陣(Identity matrix)
+  glViewport(0, 0, width, height); 
+  // 設定畫面基準點與大小
+  gluPerspective(60.0f, aspect, 0.1f, 10.0f);  
+  // 將鏡頭視角設定為透視投影(Perspective projection)，並附加相關參數(廣角、長寬比例、近平面與遠平面)
+  glGetDoublev(GL_PROJECTION, projection);
+  // 將目前計算的投影矩陣輸出給projection變數
+
+  ```
+
+
+
+
+
 
 
 
