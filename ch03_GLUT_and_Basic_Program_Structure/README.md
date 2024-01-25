@@ -47,3 +47,67 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
 
 # GLUT介面程式實作
 
+現在進行程式的撰寫，將測試並視覺化GLUT的功能，總共四個過程：  
+1. **視窗建立**  
+
+   視窗建立是使用GLUT的第一步驟，由於GLUT預設必須要有渲染的函式，否則無法正確運行，因此，此節先會先將渲染功能註冊後，讓程式進行更新，並且清除畫面。
+
+    ``` cpp
+    // windowCreate.cpp  
+
+    // 初始化GLUT函式庫
+    glutInit(&argc, argv);  
+    // 初始化渲染模式，並指定緩存器類型 (for windows)
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH); 
+    // 初始化視窗位置，(0, 0)為屏幕的左上角
+    glutInitWindowPosition(100, 100);
+    // 初始化視窗長寬
+    glutInitWindowSize(600, 600);  
+    // 創立一個標題為'glut'的視窗
+    glutCreateWindow("glut");
+    // 設定清除畫面為指定顏色
+    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+
+    // 註冊設計者的繪圖函式進入GLUT
+    glutDisplayFunc(My_Display);
+
+    // 迴圈指令，讓GLUT創建出的視窗不斷運行
+    glutMainLoop();
+    ```  
+
+    ``` cpp
+    // windowCreate.cpp
+
+    // 註冊繪圖函式
+    void My_Display()
+    {
+        // 清除畫面儲存的顏色緩存器，以及深度緩存器
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
+        // 將畫面清除為設定的顏色
+      glClearColor(0.2f, 0.2f, 0.2f, 1.0f);  
+        // 交替被現在使用的緩存器及後緩存器，可避免螢幕閃爍
+      glutSwapBuffers();
+    }
+    ```  
+
+    <div style="display: flex; ">
+        <img src="./img/windowCreate.png" alt="windowCreate" width = "300" >
+    </div>
+    <br/>
+
+
+2. 利用**渲染功能繪製茶壺**  
+   * teapotRender.cpp  
+
+3. 利用**計時功能使茶壺旋轉**、**按鍵功能進行位移**、**選單功能進行茶壺大小選擇**  
+    * transform.cpp  
+
+3. **滑鼠事件調變背景顏色**  
+    * mouseEvent.cpp
+
+* GLUT指令介紹
+
+
+
+
+

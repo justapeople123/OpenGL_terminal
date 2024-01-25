@@ -4,11 +4,10 @@
 void My_Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 	glutSwapBuffers();
 }
 
-// Main
 //int main(int argc, char *argv[])
 //{
 //	glutInit(&argc, argv);
@@ -16,7 +15,7 @@ void My_Display()
 //	glutInitWindowPosition(100, 100);
 //	glutInitWindowSize(600, 600);
 //	glutCreateWindow("glut");
-//	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+//	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 //
 //	glutDisplayFunc(My_Display);
 //	glutMainLoop();
