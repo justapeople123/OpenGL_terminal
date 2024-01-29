@@ -163,6 +163,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="mouseEvent.cpp" />
     <ClCompile Include="teapotRender.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="windowCreate.cpp" />

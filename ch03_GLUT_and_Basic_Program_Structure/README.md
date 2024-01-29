@@ -313,7 +313,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     }
     ```  
 
-    實做利用計時器旋轉茶壺的功能。  
+    實作利用計時器旋轉茶壺的功能。  
 
     ``` cpp
     // transform.cpp  
@@ -329,7 +329,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     }
     ```  
 
-    實做利用鍵盤字元事件完成茶壺位移的功能。
+    實作利用鍵盤字元事件完成茶壺位移的功能。
 
     ``` cpp
     // transform.cpp  
@@ -358,7 +358,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     ```  
 
     鍵盤功能鍵與鍵盤字元鍵不同，需要利用GLUT所定義的按鍵值，才可以讓程式知道輸入的按鍵。  
-    實做利用鍵盤功能鍵事件完成改變茶壺顏色的功能。  
+    實作利用鍵盤功能鍵事件完成改變茶壺顏色的功能。  
 
     ``` cpp
     // transform.cpp  
@@ -384,7 +384,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
 
     最後，選單功能，在主函式所定義的選單結構下，每個條目將會給予一個辨識值，即，程式在選單條目被選取時，接收的整數值將會對應當初所設定的辨識值，來完成功能上對應的調整。  
 
-    實做選單功能，用以改變茶壺大小。
+    實作選單功能，用以改變茶壺大小。
 
     ``` cpp
     // transform.cpp  
@@ -410,7 +410,96 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
 
 4. **滑鼠事件調變背景顏色**  
     
-    再
+    滑鼠事件，使用者常常利用滑鼠在應用程式裡，進行點擊、拖曳等等動作。  
+
+    在此節，將通過滑鼠事件和利用變數值調整 glClearColor 函式，來完成背景顏色的改變。  
+
+    首先，在主程式上註冊滑鼠事件的回應函數(Callback function)，並在滑鼠點擊時，繼續當下的滑鼠座標及背景明暗度，接著利用滑鼠拖曳時計算被拖曳的向量差，便能透過計算得到相應的背景明暗度。
+
+    ``` cpp
+    // mouseEvent.cpp  
+
+    int main(int argc, char *argv[])
+    {
+      // ... (Original code)
+
+      // 註冊設計者的繪圖函式進入GLUT
+      glutDisplayFunc(My_Display);
+      // 註冊當視窗大小改變時的回應函數
+      glutReshapeFunc(My_Reshape)
+      // 註冊滑鼠按鍵的回應函數(Callback function)
+      glutMouseFunc(My_Mouse);
+      // 註冊滑鼠拖曳時的回應函數(Callback function)
+      glutMotionFunc(Mouse_Moving);
+
+      // ... (Original code)
+    }
+    ```  
+
+    宣告提供給回應函數(Callback function)會使用到的變數、以及背景改變時 glClearColor 會使用到的變數。  
+
+    ``` cpp
+    // mouseEvent.cpp  
+
+    #include <GL/glut.h>
+    #include <string>
+
+    // 假設初始背景顏色為灰色
+    float oldbackGray = 0.2f; 
+    // 初始背景顏色
+    float backgroundGray = 0.2f;
+    // 使用者按下滑鼠左鍵時，記錄下按下瞬間的滑鼠 x 座標
+    int clickPt_x = 0;
+    ```  
+
+    實作滑鼠按鍵的回應函數。  
+
+    ``` cpp
+    // mouseEvent.cpp  
+    
+    // 滑鼠按鍵事件，判斷目前左鍵狀態為點擊
+    void My_Mouse(int button, int state, int x, int y)
+    {
+      // 取得的按鍵為滑鼠左鍵
+      if (button == GLUT_LEFT_BUTTON)
+      {
+        // 按鍵狀態為點擊的時的瞬間
+        if (state == GLUT_DOWN)
+        {
+          // 儲存當下的背景明暗度
+          oldbackGray = backgroundGray;
+          // 儲存當下x軸的滑鼠位置
+          clickPt_x = x;
+        }
+      }
+    }
+    ```  
+
+    實作滑鼠拖曳事件，取得滑鼠點擊中，且按鍵未放開時的滑鼠座標，利用該座標算出新的背景明暗度。  
+
+    ``` cpp
+    // mouseEvent.cpp  
+    
+    // 滑鼠拖曳事件，藉由拖曳向量，改變背景明亮度
+    void Mouse_Moving(int x, int y)
+    {
+      // 根據 滑鼠移動到的座標 與 點擊時的座標 之間的向量差，改變背景明亮度
+      backgroundGray = (x - clickPt_x) * 0.005f + oldbackGray;
+      // 避免計算值超過範圍
+      backgroundGray = std::min(std::max(backgroundGray, 0.0f), 1.0f);
+
+      // 藉由獲取的 backgroundGray 值，改變背景顏色
+      glClearColor(backgroundGray, backgroundGray, backgroundGray, 1.0f);
+      // 使程式即時更新畫面
+      glutPostRedisplay();
+    }
+    ```  
+
+
+
+
+
+
 
 
 
