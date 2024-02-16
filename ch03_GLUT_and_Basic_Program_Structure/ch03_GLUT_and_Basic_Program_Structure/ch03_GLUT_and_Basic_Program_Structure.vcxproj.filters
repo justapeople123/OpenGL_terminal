@@ -1,31 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="來源檔案">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="GLUT">
+      <UniqueIdentifier>{86539574-0acd-4b96-a0c4-6c7b0e9ed6c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="標頭檔">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{adfa8d7b-3b79-49fc-a464-326d93d13ad7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="資源檔">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="GLSL">
+      <UniqueIdentifier>{9c9e4852-223a-40b0-99f9-1bd1d39a52f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ToolsHeader">
+      <UniqueIdentifier>{b45dfa96-789e-4f5e-ad7d-9264d954e916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleApp">
+      <UniqueIdentifier>{a96a4af3-ba86-445e-9cdf-60cffaa9a206}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="windowCreate.cpp">
-      <Filter>來源檔案</Filter>
+    <ClCompile Include="GLUT\windowCreate.cpp">
+      <Filter>GLUT</Filter>
     </ClCompile>
-    <ClCompile Include="teapotRender.cpp">
-      <Filter>來源檔案</Filter>
+    <ClCompile Include="GLUT\mouseEvent.cpp">
+      <Filter>GLUT</Filter>
     </ClCompile>
-    <ClCompile Include="transform.cpp">
-      <Filter>來源檔案</Filter>
+    <ClCompile Include="GLUT\teapotRender.cpp">
+      <Filter>GLUT</Filter>
     </ClCompile>
-    <ClCompile Include="mouseEvent.cpp">
-      <Filter>來源檔案</Filter>
+    <ClCompile Include="GLUT\transform.cpp">
+      <Filter>GLUT</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleApp\src\Common.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleApp\src\ViewManager.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleApp\src\tiny_obj_loader.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleApp\src\main.cpp">
+      <Filter>SimpleApp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SimpleApp\include\Common.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleApp\include\ViewManager.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleApp\include\TinyOBJ\tiny_obj_loader.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleApp\Assets\vertex.vs.glsl">
+      <Filter>GLSL</Filter>
+    </None>
+    <None Include="SimpleApp\Assets\fragment.fs.glsl">
+      <Filter>GLSL</Filter>
+    </None>
   </ItemGroup>
 </Project>

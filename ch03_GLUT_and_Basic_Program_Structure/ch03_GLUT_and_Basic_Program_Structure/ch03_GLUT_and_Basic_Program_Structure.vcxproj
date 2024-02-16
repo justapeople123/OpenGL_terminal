@@ -93,11 +93,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\include;C:\Users\USER\code\OpenGL\glm;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\lib\Win32;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\bin\Win32\freeglut.dll" "$(OutDir)"</Command>
@@ -112,13 +114,15 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\include;C:\Users\USER\code\OpenGL\glm;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\lib\Win32;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\bin\Win32\freeglut.dll" "$(OutDir)"</Command>
@@ -131,11 +135,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\include;C:\Users\USER\code\OpenGL\glm;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\lib\Win32;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\bin\Win32\freeglut.dll" "$(OutDir)"</Command>
@@ -150,23 +156,38 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\include;C:\Users\USER\code\OpenGL\glm;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\lib\Win32;C:\Users\USER\code\OpenGL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Users\USER\code\OpenGL\glut\freeglut-MSVC-3.0.0-2.mp\freeglut\bin\Win32\freeglut.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mouseEvent.cpp" />
-    <ClCompile Include="teapotRender.cpp" />
-    <ClCompile Include="transform.cpp" />
-    <ClCompile Include="windowCreate.cpp" />
+    <ClCompile Include="GLUT\mouseEvent.cpp" />
+    <ClCompile Include="GLUT\teapotRender.cpp" />
+    <ClCompile Include="GLUT\transform.cpp" />
+    <ClCompile Include="GLUT\windowCreate.cpp" />
+    <ClCompile Include="SimpleApp\src\Common.cpp" />
+    <ClCompile Include="SimpleApp\src\main.cpp" />
+    <ClCompile Include="SimpleApp\src\tiny_obj_loader.cpp" />
+    <ClCompile Include="SimpleApp\src\ViewManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SimpleApp\include\Common.h" />
+    <ClInclude Include="SimpleApp\include\TinyOBJ\tiny_obj_loader.h" />
+    <ClInclude Include="SimpleApp\include\ViewManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleApp\Assets\fragment.fs.glsl" />
+    <None Include="SimpleApp\Assets\vertex.vs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
