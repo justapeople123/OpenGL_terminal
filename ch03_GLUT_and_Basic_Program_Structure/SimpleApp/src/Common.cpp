@@ -2,8 +2,11 @@
 
 #include "../include/Common.h"
 
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "../include/STB/stb_image.h"
+
+#undef _CRT_SECURE_NO_WARNINGS
 
 // Print OpenGL context related information.
 void Common::DumpInfo(void)
