@@ -4,17 +4,20 @@
     <Filter Include="GLUT">
       <UniqueIdentifier>{86539574-0acd-4b96-a0c4-6c7b0e9ed6c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Tools">
-      <UniqueIdentifier>{adfa8d7b-3b79-49fc-a464-326d93d13ad7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GLSL">
-      <UniqueIdentifier>{9c9e4852-223a-40b0-99f9-1bd1d39a52f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ToolsHeader">
-      <UniqueIdentifier>{b45dfa96-789e-4f5e-ad7d-9264d954e916}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SimpleApp">
       <UniqueIdentifier>{a96a4af3-ba86-445e-9cdf-60cffaa9a206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleApp\ToolsHeader">
+      <UniqueIdentifier>{b45dfa96-789e-4f5e-ad7d-9264d954e916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleApp\Tools">
+      <UniqueIdentifier>{adfa8d7b-3b79-49fc-a464-326d93d13ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleApp\GLSL">
+      <UniqueIdentifier>{9c9e4852-223a-40b0-99f9-1bd1d39a52f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleApp\Source">
+      <UniqueIdentifier>{6b87d018-84b0-493e-82a4-236f50587ccd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,35 +34,35 @@
       <Filter>GLUT</Filter>
     </ClCompile>
     <ClCompile Include="SimpleApp\src\Common.cpp">
-      <Filter>Tools</Filter>
+      <Filter>SimpleApp\Tools</Filter>
     </ClCompile>
     <ClCompile Include="SimpleApp\src\ViewManager.cpp">
-      <Filter>Tools</Filter>
+      <Filter>SimpleApp\Tools</Filter>
     </ClCompile>
     <ClCompile Include="SimpleApp\src\tiny_obj_loader.cpp">
-      <Filter>Tools</Filter>
+      <Filter>SimpleApp\Tools</Filter>
     </ClCompile>
     <ClCompile Include="SimpleApp\src\main.cpp">
-      <Filter>SimpleApp</Filter>
+      <Filter>SimpleApp\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleApp\include\Common.h">
-      <Filter>ToolsHeader</Filter>
+      <Filter>SimpleApp\ToolsHeader</Filter>
     </ClInclude>
     <ClInclude Include="SimpleApp\include\ViewManager.h">
-      <Filter>ToolsHeader</Filter>
+      <Filter>SimpleApp\ToolsHeader</Filter>
     </ClInclude>
     <ClInclude Include="SimpleApp\include\TinyOBJ\tiny_obj_loader.h">
-      <Filter>ToolsHeader</Filter>
+      <Filter>SimpleApp\ToolsHeader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleApp\Assets\vertex.vs.glsl">
-      <Filter>GLSL</Filter>
+      <Filter>SimpleApp\GLSL</Filter>
     </None>
     <None Include="SimpleApp\Assets\fragment.fs.glsl">
-      <Filter>GLSL</Filter>
+      <Filter>SimpleApp\GLSL</Filter>
     </None>
   </ItemGroup>
 </Project>
