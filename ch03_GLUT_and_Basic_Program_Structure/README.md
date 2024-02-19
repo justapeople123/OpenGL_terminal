@@ -53,7 +53,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
    視窗建立是使用GLUT的第一步驟，由於GLUT預設必須要有渲染的函式，否則無法正確運行，因此，此節先會先將渲染功能註冊後，讓程式進行更新，並且清除畫面。
 
     ``` cpp
-    // windowCreate.cpp  
+    // ./GLUT/src/windowCreate.cpp  
 
     int main(int argc, char *argv[])
     {
@@ -79,7 +79,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     ```  
 
     ``` cpp
-    // windowCreate.cpp
+    // ./GLUT/src/windowCreate.cpp
 
     // 註冊繪圖函式
     void My_Display()
@@ -111,7 +111,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     <br/>
 
     ``` cpp
-    // teapotRender.cpp  
+    // ./GLUT/src/teapotRender.cpp  
 
     int main(int argc, char *argv[])
     {
@@ -127,7 +127,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     ```  
 
     ``` cpp
-    // teapotRender.cpp  
+    // ./GLUT/src/teapotRender.cpp  
 
     void My_Reshape(int width, int height)
     {
@@ -146,7 +146,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     ```  
     投影矩陣設定完，便要設定模塑座標矩陣(Model matrix)及視覽座標矩陣(View matrix)，OpenGL將兩個矩陣綁再一起，因此，若要在渲染函式下進行相機設定，僅需使用glutLookAt函式，便能完成視覽矩陣的設定(View matrix)，**此節先不做模塑座標矩陣(Model matrix)的改變**，而直接將茶壺畫出。
     ``` cpp
-    // teapotRender.cpp 
+    // ./GLUT/src/teapotRender.cpp 
 
     void My_Disaply()
     {
@@ -183,7 +183,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     首先，在主程式上註冊對應的函式後，並在渲染功能下增加模塑座標矩陣(Model matrix)運算，再通過其他回應函數(Callback function)輔助後，將所使用的變數變化後，便能完成功能。
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     int main(int argc, char *argv[])
     {
@@ -207,7 +207,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     選單功能的選單結構需要使用者定義，同樣再主程式下定義選單，並回應函數註冊在選單上。
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     int main(int argc, char *argv[])
     {
@@ -241,7 +241,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     宣告提供給模塑座標矩陣(Model matrix)計算、以及回應函數(Callback function)會使用到的變數。  
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     #include <GL/glut.h>
     #include <string>  
@@ -272,7 +272,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     針對模塑座標矩陣(Model matrix)進行計算，包含移動、旋轉、顏色的調整。
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     void My_Display()
     {
@@ -316,7 +316,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作利用計時器旋轉茶壺的功能。  
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     void My_Timer(int val)
     {
@@ -332,7 +332,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作利用鍵盤字元事件完成茶壺位移的功能。
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     void My_Keyboard(unsigned char key, int x, int y)
     {
@@ -361,7 +361,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作利用鍵盤功能鍵事件完成改變茶壺顏色的功能。  
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     void My_SpecialKeys(int key, int x, int y)
     {
@@ -387,7 +387,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作選單功能，用以改變茶壺大小。
 
     ``` cpp
-    // transform.cpp  
+    // ./GLUT/src/transform.cpp  
 
     void My_Menu(int id)
     {
@@ -417,7 +417,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     首先，在主程式上註冊滑鼠事件的回應函數(Callback function)，並在滑鼠點擊時，繼續當下的滑鼠座標及背景明暗度，接著利用滑鼠拖曳時計算被拖曳的向量差，便能透過計算得到相應的背景明暗度。
 
     ``` cpp
-    // mouseEvent.cpp  
+    // ./GLUT/src/mouseEvent.cpp  
 
     int main(int argc, char *argv[])
     {
@@ -439,7 +439,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     宣告提供給回應函數(Callback function)會使用到的變數、以及背景改變時 glClearColor 會使用到的變數。  
 
     ``` cpp
-    // mouseEvent.cpp  
+    // ./GLUT/src/mouseEvent.cpp  
 
     #include <GL/glut.h>
     #include <string>
@@ -455,7 +455,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作滑鼠按鍵的回應函數。  
 
     ``` cpp
-    // mouseEvent.cpp  
+    // ./GLUT/src/mouseEvent.cpp  
     
     // 滑鼠按鍵事件，判斷目前左鍵狀態為點擊
     void My_Mouse(int button, int state, int x, int y)
@@ -478,7 +478,7 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     實作滑鼠拖曳事件，取得滑鼠點擊中，且按鍵未放開時的滑鼠座標，利用該座標算出新的背景明暗度。  
 
     ``` cpp
-    // mouseEvent.cpp  
+    // ./GLUT/src/mouseEvent.cpp  
     
     // 滑鼠拖曳事件，藉由拖曳向量，改變背景明亮度
     void Mouse_Moving(int x, int y)
