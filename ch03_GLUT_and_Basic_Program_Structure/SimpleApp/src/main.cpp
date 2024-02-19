@@ -51,7 +51,7 @@ void My_LoadModels()
 
   std::string err;
 
-  bool ret = tinyobj::LoadObj(shapes, materials, err, "SimpleApp/Assets/box_realistic.obj");
+  bool ret = tinyobj::LoadObj(shapes, materials, err, "../../Assets/box_realistic.obj");
   if (err.size() > 0)
   {
     printf("Load Models Fail! Please check the solution path");
@@ -98,7 +98,7 @@ void My_LoadModels()
   // Texture setting
   ///////////////////////////
   // Load texture data from file
-  TextureData tdata = Common::Load_png("SimpleApp/Assets/box_texture_color.png");
+  TextureData tdata = Common::Load_png("../../Assets/box_texture_color.png");
 
   // Generate empty texture
   glGenTextures(1, &m_shape.m_texture);
@@ -125,8 +125,8 @@ void My_Init()
 
   GLuint vs = glCreateShader(GL_VERTEX_SHADER);
   GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
-  char **vsSource = Common::LoadShaderSource("SimpleApp/Assets/vertex.vs.glsl");
-  char **fsSource = Common::LoadShaderSource("SimpleApp/Assets/fragment.fs.glsl");
+  char **vsSource = Common::LoadShaderSource("../../Assets/vertex.vs.glsl");
+  char **fsSource = Common::LoadShaderSource("../../Assets/fragment.fs.glsl");
   glShaderSource(vs, 1, vsSource, NULL);
   glShaderSource(fs, 1, fsSource, NULL);
   Common::FreeShaderSource(vsSource);

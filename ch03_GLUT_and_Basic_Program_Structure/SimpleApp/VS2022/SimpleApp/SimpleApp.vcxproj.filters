@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{247aec40-62a9-4f7f-927e-ea167c3a68fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{12279318-1c2c-4ddb-8e53-55e1c8f6d63b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ToolsHeader">
+      <UniqueIdentifier>{a4ffc1c1-a3a6-4be1-9fb9-9acd33c99cf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Common.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\tiny_obj_loader.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ViewManager.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Common.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\TinyOBJ\tiny_obj_loader.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ViewManager.h">
+      <Filter>ToolsHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\fragment.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\vertex.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
