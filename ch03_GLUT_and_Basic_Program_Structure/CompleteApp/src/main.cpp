@@ -4,21 +4,21 @@
 
 #define MENU_Sale 1
 #define MENU_Shrink 2
-#define MENU_EXIT   3
+#define MENU_EXIT 3
 
 using namespace glm;
 using namespace std;
 
-float	width = 600;
-float   height = 600;
-float	aspect;	
-float	interval = 16.0f;
+float width = 600;
+float height = 600;
+float aspect;
+float interval = 16.0f;
 
 Scene *scene;
 
 void My_Init()
 {
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
@@ -30,17 +30,17 @@ void My_Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scene->Render();
-    glutSwapBuffers();
+	glutSwapBuffers();
 }
 
-//Call to resize the window
+// Call to resize the window
 void My_Reshape(int width, int height)
 {
 	scene->GetCamera()->SetWindowSize(width, height);
 	glViewport(0, 0, width, height);
 }
 
-//Timer event
+// Timer event
 void My_Timer(int val)
 {
 	scene->Update(interval);
@@ -48,7 +48,7 @@ void My_Timer(int val)
 	glutTimerFunc(interval, My_Timer, val);
 }
 
-//Mouse event
+// Mouse event
 void My_Mouse(int button, int state, int x, int y)
 {
 	scene->MouseEvent(button, state, x, y);
@@ -70,24 +70,24 @@ void My_Mouse(int button, int state, int x, int y)
 	}
 }
 
-//Keyboard event
+// Keyboard event
 void My_Keyboard(unsigned char key, int x, int y)
 {
 	scene->KeyBoardEvent(key);
 }
 
-//Special key event
+// Special key event
 void My_SpecialKeys(int key, int x, int y)
 {
 	scene->KeyBoardEvent(key);
 }
 
-//Menu event
+// Menu event
 void My_Menu(int id)
 {
 	scene->MenuEvent(id);
 
-	switch(id)
+	switch (id)
 	{
 	case MENU_EXIT:
 		exit(0);
@@ -97,17 +97,16 @@ void My_Menu(int id)
 	}
 }
 
-
-
-void My_Mouse_Moving(int x, int y) {
+void My_Mouse_Moving(int x, int y)
+{
 	scene->GetCamera()->mouseMoveEvent(x, y);
 }
 
 int main(int argc, char *argv[])
 {
 #ifdef __APPLE__
-    //Change working directory to source code path
-    chdir(__FILEPATH__("/../Assets/"));
+	// Change working directory to source code path
+	chdir(__FILEPATH__("/../Assets/"));
 #endif
 	// Initialize GLUT and GLEW, then create a window.
 	////////////////////
@@ -115,7 +114,7 @@ int main(int argc, char *argv[])
 #ifdef _MSC_VER
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 #else
-    glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 #endif
 
 	glutInitWindowPosition(100, 100);
@@ -125,13 +124,13 @@ int main(int argc, char *argv[])
 	glewInit();
 #endif
 
-	//Print debug information 
+	// Print debug information
 	Common::DumpInfo();
 
-	//Call custom initialize function
+	// Call custom initialize function
 	My_Init();
-	
-	//定義選單
+
+	// 定義選單
 	////////////////////
 	int menu_main = glutCreateMenu(My_Menu);
 	int menu_entry = glutCreateMenu(My_Menu);
@@ -148,21 +147,20 @@ int main(int argc, char *argv[])
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 	////////////////////
 
-	//Register GLUT callback functions
+	// Register GLUT callback functions
 	////////////////////
 	glutDisplayFunc(My_Display);
 	glutReshapeFunc(My_Reshape);
 	glutMouseFunc(My_Mouse);
 	glutKeyboardFunc(My_Keyboard);
 	glutSpecialFunc(My_SpecialKeys);
-	glutTimerFunc(16, My_Timer, 0); 
-	glutPassiveMotionFunc(My_Mouse_Moving);           
-	glutMotionFunc(My_Mouse_Moving);     
+	glutTimerFunc(16, My_Timer, 0);
+	glutPassiveMotionFunc(My_Mouse_Moving);
+	glutMotionFunc(My_Mouse_Moving);
 	////////////////////
 
-	//進入主迴圈
+	// 進入主迴圈
 	glutMainLoop();
 
 	return 0;
 }
-

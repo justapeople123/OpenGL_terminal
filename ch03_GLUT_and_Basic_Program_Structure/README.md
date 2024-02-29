@@ -495,7 +495,73 @@ GLUT的功能包刮：定意視窗、視窗控制、接受鍵盤滑鼠的輸入�
     }
     ```  
 
+---
 
+# 範例架構介紹
+
+程式編寫的過程，會有許多指令使用與另一個專案重複，為了節省開發及環境設定的時間，此節介紹兩種架構，分別為 適合開發小型程式的小架構 以及 適合設計場景大架構。  
+
+1. 小架構   
+
+    小架構的範例程式內的檔案介紹。
+
+  <div style="display: flex; justify-content: space-around;">
+      <img src="./img/SimpleApp_table.png" alt="diagram" width = "500" >
+  </div>  
+  <br/>  
+
+  設計者只需要專注在 main.cpp 檔內，其他檔案只是輔助工具，可藉由函式呼叫方便程式撰寫，設計者透過回應函數(Callback function)作為使用者介面(UI)，使程式可以讓使用者對程式進行互動，程式架構關係如下圖。  
+
+  <div style="display: flex; justify-content: space-around;">
+      <img src="./img/SimpleApp.png" alt="diagram" width = "500" >
+  </div>  
+  <br/>  
+
+  程式將從 main 函式進入，初始化 GLUT 後，再透過 My_Init 函式進行自定義的初始化動作，例如：初始化程式變數，進行渲染器(Shader)設定，接著進行 My_LoadModels，進行模型讀取，包刮 obj 、 png 檔案讀取，並且套用於渲染器(Shader)，最後程式註冊回應函數(Callback function)，提供渲染函式以及使用者介面的撰寫介面，並於函式內填入程式碼，完成指定的程式功能。  
+
+2. 大架構   
+
+    大架構的範例程式內的檔案介紹。
+
+  <div style="display: flex; justify-content: space-around;">
+      <img src="./img/CompleteApp_table.png" alt="diagram" width = "500" >
+  </div>  
+  <br/>  
+
+  大架構所包含的工具較多，增加的檔案是為了物件化場景及模型的控制，使得設計者不需要自己編寫過多的程式，並讓檔案分工明確，若設計者需要克製化模型物件，只需要繼承 BaseModel 物件，並編寫自訂的物件後，便能以場景進行統一管理，程式架構如下圖。  
+
+  <div style="display: flex; justify-content: space-around;">
+      <img src="./img/CompleteAPP.png" alt="diagram" width = "500" >
+  </div>  
+  <br/>  
+
+  main.cpp 檔中初始化後，註冊回應函數(Callback function)，並讓場景物件也能夠接收到回應函數(Callback function)，場景物件統一管理模型，並利用接收的回應函數，使他們變形(Transform)，工具檔則被其他檔所包含利用。
+
+  ``` cpp
+    // ./GLUT/src/windowCreate.cpp  
+
+    int main(int argc, char *argv[])
+    {
+      // 初始化GLUT函式庫
+      glutInit(&argc, argv);  
+      // 初始化渲染模式，並指定緩存器類型 (for windows)
+      glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH); 
+      // 初始化視窗位置，(0, 0)為屏幕的左上角
+      glutInitWindowPosition(100, 100);
+      // 初始化視窗長寬
+      glutInitWindowSize(600, 600);  
+      // 創立一個標題為'glut'的視窗
+      glutCreateWindow("glut");
+      // 設定清除畫面為指定顏色
+      glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+
+      // 註冊設計者的繪圖函式進入GLUT
+      glutDisplayFunc(My_Display);
+
+      // 迴圈指令，讓GLUT創建出的視窗不斷運行
+      glutMainLoop();
+    }
+    ```  
 
 
 
